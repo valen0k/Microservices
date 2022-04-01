@@ -1,5 +1,10 @@
 package edu.school21.covidapplication.controllers;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.JsonNode;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
 import jdk.nashorn.api.scripting.JSObject;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -27,18 +32,11 @@ public class CovidController {
 
     private final String COVID_URL = "http://corona-api.com/countries/";
 
-    @Autowired
-    private RestTemplate template;
-
     @GetMapping("/{country_name}")
-    public JSONObject getCovidInfo(@PathVariable String country_name) throws IOException {
-//        JSONObject jsonObject = template.getForObject(COVID_URL + country_name, JSONObject.class);
-        CloseableHttpClient httpClient = HttpClients.createDefault();
-        HttpGet httpGet = new HttpGet(COVID_URL + country_name);
-        CloseableHttpResponse httpResponse = httpClient.execute(httpGet);
-        JSONObject jsonObject = new JSONObject(EntityUtils.toString(httpResponse.getEntity()));
-//        JSONObject data = jsonObject.getJSONObject("data");
-        return jsonObject;
+    public String getCovidInfo(@PathVariable String country_name) throws UnirestException {
+        HttpResponse<JsonNode> jsonNodeHttpResponse = Unirest.get(COVID_URL + country_name).asJson();
+
+        return jsonNodeHttpResponse.getBody().toString();
     }
 
 }
