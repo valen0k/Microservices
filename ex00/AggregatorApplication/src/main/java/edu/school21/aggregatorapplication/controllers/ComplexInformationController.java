@@ -19,15 +19,20 @@ public class ComplexInformationController {
     private RestTemplate template;
 
     @GetMapping("/{country_name}")
-    public JSONObject getIngo(@PathVariable String country_name) {
-        Map<String,String> res = new HashMap<>();
-
+    public String getIngo(@PathVariable String country_name) {
         String covidUrl = "http://COVID/covid-management/countries/" + country_name;
-        JSONObject covidData = template.getForObject(covidUrl, JSONObject.class);
+        String countryUrl = "http://COUNTRIES/countries-management/countries/" + country_name;
 
+        String s1 = template.getForObject(covidUrl, String.class);
+        String s2 = template.getForObject(countryUrl, String.class);
 
-//        String countryUrl = "http://COUNTRIES/countries-management/countries/" + country_name;
-        return covidData;
+        JSONObject jsonObject = new JSONObject(s1);
+        JSONObject jsonObject2 = new JSONObject(s2);
+        JSONObject jsonObjectWRAP = new JSONObject();
+        jsonObjectWRAP.put("covid", jsonObject);
+        jsonObjectWRAP.put("countries", jsonObject2);
+
+        return JSONObject.valueToString(jsonObjectWRAP);
     }
 
 }

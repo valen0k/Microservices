@@ -11,3 +11,17 @@ server:
 spring:
   application:
     name: API-GATEWAY
+#zuul:
+#  routes:
+#    aggregator:
+#      path: /information_management/countries/*
+#      service-id: aggregator
+#      url: aggregator
+#      strip-prefix: false
+#eureka:
+#  instance:
+#    prefer-ip-address: true
+#    lease-renewal-interval-in-seconds: 6
+#ribbon:
+#  eureka:
+#    enabled: false

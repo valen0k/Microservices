@@ -21,24 +21,8 @@ public class ClientsController {
     @GetMapping("/{country_name}")
     @ResponseBody
     public String getInfo(@PathVariable String country_name) {
-//        String requestUrl = "http://AGGREGATOR/information_management/countries/" + country_name;
-
-        String covidUrl = "http://COVID/covid-management/countries/" + country_name;
-        String countryUrl = "http://COUNTRIES/countries-management/countries/" + country_name;
-
-//        Map<String, String> map = new HashMap<>();
-
-
-        String s1 = template.getForObject(covidUrl, String.class);
-        String s2 = template.getForObject(countryUrl, String.class);
-
-        JSONObject jsonObject = new JSONObject(s1);
-        JSONObject jsonObject2 = new JSONObject(s2);
-        JSONObject jsonObjectWRAP = new JSONObject();
-        jsonObjectWRAP.put("covid", jsonObject);
-        jsonObjectWRAP.put("countries", jsonObject2);
-
-        return JSONObject.valueToString(jsonObjectWRAP);
+        String requestUrl = "http://AGGREGATOR/information_management/countries/" + country_name;
+        return template.getForObject(requestUrl, String.class);
     }
 
 }
