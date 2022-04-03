@@ -3,9 +3,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>AggregatorApplication</artifactId>
-    <name>AggregatorApplication</name>
+    <artifactId>covid-application</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <name>covid-application</name>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>ex00</artifactId>
@@ -13,15 +14,30 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
+
     <properties>
         <java.version>1.8</java.version>
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.13</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>4.4.15</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
+
     </dependencies>
 
     <build>

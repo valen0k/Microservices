@@ -1,0 +1,43 @@
+version: '3.3'
+
+services:
+  aggregator-application:
+    image: aggregator-application:v1
+    build: ./aggregator-application
+    ports:
+      - '8088:8080'
+    depends_on:
+      - covid-application
+      - countries-application
+
+  api-gateway-application:
+    image: api-gateway-application:v1
+    build: ./api-gateway-application
+    ports:
+      - '8080:8080'
+    depends_on:
+      - aggregator-application
+
+  countries-application:
+    image: countries-application:v1
+    build: ./countries-application
+    ports:
+      - '8090:8080'
+    depends_on:
+      - service-discovery-application
+
+  covid-application:
+    image: covid-application:v1
+    build: ./covid-application
+    ports:
+      - '8092:8080'
+    depends_on:
+      - service-discovery-application
+    restart: on-failure
+
+  service-discovery-application:
+    image: service-discovery-application:v1
+    build: ./service-discovery-application
+    ports:
+      - '8761:8080'
+    restart: on-failure
