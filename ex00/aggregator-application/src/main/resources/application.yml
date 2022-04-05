@@ -10,4 +10,4 @@ server:
   port: 0
 spring:
   application:
-    name: AGGREGATOR
+    name: aggregator

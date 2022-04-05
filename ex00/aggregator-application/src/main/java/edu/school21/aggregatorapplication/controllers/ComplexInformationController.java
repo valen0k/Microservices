@@ -20,8 +20,8 @@ public class ComplexInformationController {
 
     @GetMapping("/{country_name}")
     public String getIngo(@PathVariable String country_name) {
-        String covidUrl = "http://COVID/covid-management/countries/" + country_name;
-        String countryUrl = "http://COUNTRIES/countries-management/countries/" + country_name;
+        String covidUrl = "http://covid/covid-management/countries/" + country_name;
+        String countryUrl = "http://countries/countries-management/countries/" + country_name;
 
         String s1 = template.getForObject(covidUrl, String.class);
         String s2 = template.getForObject(countryUrl, String.class);
