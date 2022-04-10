@@ -4,33 +4,38 @@ services:
   aggregator-application:
     image: aggregator-application:v1
     build: ./aggregator-application
-    ports:
-      - '8088:8080'
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://service-discovery-application:8761/eureka/
     depends_on:
       - covid-application
       - countries-application
+    restart: on-failure
 
   api-gateway-application:
     image: api-gateway-application:v1
     build: ./api-gateway-application
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://service-discovery-application:8761/eureka/
     ports:
       - '8080:8080'
     depends_on:
       - aggregator-application
+    restart: on-failure
 
   countries-application:
     image: countries-application:v1
     build: ./countries-application
-    ports:
-      - '8090:8080'
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://service-discovery-application:8761/eureka/
     depends_on:
       - service-discovery-application
+    restart: on-failure
 
   covid-application:
     image: covid-application:v1
     build: ./covid-application
-    ports:
-      - '8092:8080'
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://service-discovery-application:8761/eureka/
     depends_on:
       - service-discovery-application
     restart: on-failure
@@ -39,5 +44,5 @@ services:
     image: service-discovery-application:v1
     build: ./service-discovery-application
     ports:
-      - '8761:8080'
+      - '8761:8761'
     restart: on-failure

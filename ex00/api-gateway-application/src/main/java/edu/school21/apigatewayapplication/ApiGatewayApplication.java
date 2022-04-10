@@ -18,7 +18,7 @@ public class ApiGatewayApplication {
 	@Bean
 	public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
 		return builder.routes()
-				.route("aggregator", r -> r.path("/information_management/countries/*")
+				.route(r -> r.path("/information_management/countries/*")
 						.uri("lb://aggregator"))
 				.build();
 	}

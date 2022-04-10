@@ -19,7 +19,7 @@ public class ComplexInformationController {
     private RestTemplate template;
 
     @GetMapping("/{country_name}")
-    public String getIngo(@PathVariable String country_name) {
+    public String getInfo(@PathVariable String country_name) {
         String covidUrl = "http://covid/covid-management/countries/" + country_name;
         String countryUrl = "http://countries/countries-management/countries/" + country_name;
 
