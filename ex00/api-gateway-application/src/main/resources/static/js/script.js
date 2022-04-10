@@ -33,10 +33,12 @@
         }
 
         function getTemplateString() {
-            let url = window.location.pathname.substring(1);
+            let url = window.location.pathname;
+
+
             $.ajax({
                 type: 'GET',
-                url: '/' + url.substring(0, url.indexOf('/')),
+                url: url.substring(0, url.length - 9),
                 dataType: "json",
                 success: function(text) {
                     _elements.$element.empty();

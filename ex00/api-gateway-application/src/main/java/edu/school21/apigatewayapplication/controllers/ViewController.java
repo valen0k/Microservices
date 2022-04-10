@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ViewController {
 
-    @GetMapping("/{country_name}/overview")
+    @GetMapping("/information_management/countries/{country_name}/overview")
     public String getView() {
         return "index";
     }
