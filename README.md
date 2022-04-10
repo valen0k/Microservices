@@ -1,4 +1,4 @@
-#Microservices
+# Microservices
 
 ###### Set of microservices for obtaining COVID-statistic in different countries
 
@@ -26,7 +26,7 @@ Stop and down containers with images removing:
 docker-compose stop
 docker-compose down --rmi all
 ```
-## Using
+## Usage
 Eureka dashboard: `localhost:8761`
 ### API
 
