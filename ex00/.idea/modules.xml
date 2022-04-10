@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/aggregator-application/aggregator-application.iml" filepath="$PROJECT_DIR$/aggregator-application/aggregator-application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/api-gateway-application/api-gateway-application.iml" filepath="$PROJECT_DIR$/api-gateway-application/api-gateway-application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/countries-application/countries-application.iml" filepath="$PROJECT_DIR$/countries-application/countries-application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/covid-application/covid-application.iml" filepath="$PROJECT_DIR$/covid-application/covid-application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ex00.iml" filepath="$PROJECT_DIR$/.idea/ex00.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service-discovery-application/service-discovery-application.iml" filepath="$PROJECT_DIR$/service-discovery-application/service-discovery-application.iml" />
+    </modules>
+  </component>
+</project>
