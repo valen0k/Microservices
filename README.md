@@ -3,8 +3,8 @@
 ###### Set of microservices for obtaining COVID-statistic in different countries
 
 ## Getting started
-### Using IDE
-In root folder:
+### with IDE
+In root (ex00) folder:
 ```shell
 mvn clean install
 java -jar {SERVICE_NAME}/target/{*.jar}
@@ -16,7 +16,7 @@ Microservices order:
 4. aggregator
 5. api-gateway
 
-### Using Docker
+### with Docker
 In root folder:
 ```shell
 docker-compose up -d
