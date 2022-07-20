@@ -3,10 +3,13 @@
 ###### Set of microservices for obtaining COVID-statistic in different countries
 
 ## Getting started
+```shell
+mvn clean install
+```
+
 ### with IDE
 In root (ex00) folder:
 ```shell
-mvn clean install
 java -jar {SERVICE_NAME}/target/{*.jar}
 ```
 Microservices order:
